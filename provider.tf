@@ -7,11 +7,11 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "finalmrpipikado"
-    key = "final/terraform.tfstate"
+    bucket = "mrpipikadohacathon"
+    key = "Hacathon/terraform.tfstate"
     region = "us-east-1"
 
-    dynamodb_table = "Final"
+    dynamodb_table = "Hacathon"
     encrypt = true
   }
 }

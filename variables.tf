@@ -140,17 +140,18 @@ variable "jenkins_slave_private_ip" {
   default     = "10.0.1.100"
 }
 
-variable "jenkins_console_port" {
-  description = "Jenkins_port"
-  type        = number
-  default     = 8080
-}
-
 variable "instance_type_jenkins_slave" {
   description = "The type of jenkins slave instance "
   type        = string
   default     = "t2.medium"
 }
+
+variable "jenkins_slave_http" {
+  description = "Jenkins slave http port"
+  type        = number
+  default     = 80
+}
+
 
 #################
 #Jenkins master #
@@ -161,6 +162,13 @@ variable "web_page_port" {
   type        = number
   default     = 8080
 }
+
+variable "jenkins_console_port" {
+  description = "Jenkins_port"
+  type        = number
+  default     = 8080
+}
+
 
 variable "jenkins_ssh_port" {
   description = "jenkins_ssh_port"
@@ -206,7 +214,7 @@ variable "db_port" {
 variable "identifier" {
   description = "The name of the RDS instance, if omitted, Terraform will assign a random, unique identifier"
   type        = string
-  default     = "GT-db"
+  default     = "gt-db"
 }
 
 variable "engine" {
@@ -260,7 +268,7 @@ variable "multi_az" {
 variable "publicly_accessible" {
   description = "Bool to control if instance is publicly accessible"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "allow_major_version_upgrade" {
